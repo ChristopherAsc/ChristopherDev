@@ -5,15 +5,35 @@
 <h1>{{ single_product.name }}</h1>
 
 <div class = "product-detail">
+    
+    <!--Image of the product-->
+    <div class="product-image">
     <img src =" {{ single_product.image.url }} " alt = "{{ single_product.name }}" width = "300px">
-    <p> Price: {{ single_product.price }}</p>
-    <p> Description: {{single_product.description}}</p>
-    <p> Category: {{single_product.category.name}}</p>
-    <p> Stock: {{single_product.stock}}</p>
+    </div>
+    
+    <div class = "product-price">  
+        <p> Price: {{ single_product.price }}</p>
+    </div>
+    <div class = "product-description">
+        <p> Description: {{single_product.description}}</p>
+    </div>
+    <div class = "product-category">
+        <p> Category: {{single_product.category.name}}</p>
+    </div>
+    <div class = "product-stock">
+            <p> Stock: {{single_product.stock}}</p>
+    </div>
 
+    <div class = "product-rating">
     {% if single_product.average_rating %}
         <p>Average Rating: {{ single_product.average_rating }}</p>
     {% endif %}
+    </div>
+
+    <!-- add to cart button below-->
+     <div class ="add-to-cart">
+        <button class = "btn-add-to-cart" data-product-id = "{{ single_product.id }}">Add to Cart</button>
+     </div>
 </div>
 
 {% endblock %}
